@@ -11,11 +11,11 @@ struct WeatherAlerts {
     var userAlert: String
    
     init (weatherDictionary: NSDictionary) {
-        
-        if let weatheralerts = (weatherDictionary["alerts"] as! NSArray!) {
-            
-            userAlert = weatheralerts[0]["title"] as! String
-            
+
+        if let weatherAlerts = weatherDictionary["alerts"] as? NSArray,
+            let firstAlert = weatherAlerts.firstObject as? NSDictionary,
+            let title = firstAlert["title"] as? String {
+            userAlert = title
         } else {
             userAlert = ""
         }
