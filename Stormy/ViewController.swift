@@ -89,6 +89,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
       
         // Get user preference
         let defaults: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+        defaults.registerDefaults(["celsius": true])
         userTemperatureCelsius = defaults.boolForKey("celsius")
 	      print("defaults: celsius  = \(userTemperatureCelsius)");
       
@@ -341,7 +342,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate {
                     self.dayFiveImage.image = weeklyWeather.dayFiveIcon
                     
                     self.daySixWeekDayLabel.text = "\(weeklyWeather.daySixTime!)"
-                    self.daySixImage.image = weeklyWeather.dayFiveIcon
+                    self.daySixImage.image = weeklyWeather.daySixIcon
                     
                     //Weather Alerts
                     self.wAlerts.text = ""
